@@ -93,24 +93,7 @@ st.markdown('<p class="sub-header">AI-Powered Document Intelligence Platform wit
 
 # Sidebar Configuration
 with st.sidebar:
-    st.title("⚙️ Configuration")
-
-    # API Key input
-    api_key_input = st.text_input(
-        "Comet API Key",
-        type="password",
-        value=os.getenv('COMET_API_KEY', '') or os.getenv('AIMLAPI_KEY', ''),
-        help="Enter your Comet API key to access GPT-5-nano"
-    )
-
-    if api_key_input:
-        st.session_state.gpt5_client = GPT5Client(api_key_input)
-        if st.session_state.gpt5_client.using_comet:
-            st.success(f"✅ Comet API configured (Model: GPT-5-nano)")
-        else:
-            st.success("✅ AI/ML API configured (Model: GPT-5-nano)")
-
-    st.divider()
+    st.title("🎯 Research Modes")
 
     # Research Mode Selection
     research_mode = st.selectbox(
@@ -154,9 +137,6 @@ with st.sidebar:
 
 # Main Content Area
 if not st.session_state.gpt5_client:
-    st.warning("⚠️ Please enter your Comet API key in the sidebar to continue")
-    st.info("Get your API key from [Comet API](https://cometapi.com)")
-
     st.divider()
     st.subheader("🎯 Key Features")
 
@@ -258,7 +238,7 @@ else:
                                 if review_text:
                                     st.markdown(review_text)
                                 else:
-                                    st.warning("The literature review returned empty. Please try again or check your API connection.")
+                                    st.warning("The literature review returned empty. Please try again.")
 
                                 # Show metadata
                                 st.info(f"📊 Analyzed {result['paper_count']} papers | "
@@ -348,7 +328,7 @@ else:
                                 if analysis_text:
                                     st.markdown(analysis_text)
                                 else:
-                                    st.warning("The analysis returned empty. Please try again or check your API connection.")
+                                    st.warning("The analysis returned empty. Please try again.")
                             else:
                                 st.error(f"Error: {result.get('error', 'Unknown error')}")
 
@@ -395,7 +375,7 @@ else:
                         if hypotheses_text:
                             st.markdown(hypotheses_text)
                         else:
-                            st.warning("No hypotheses were generated. Please try again or check your API connection.")
+                            st.warning("No hypotheses were generated. Please try again.")
                     else:
                         st.error(f"Error: {result.get('error', 'Unknown error')}")
             else:
@@ -828,7 +808,7 @@ else:
 st.divider()
 st.markdown("""
 <div style="text-align: center; color: #64748B; padding: 2rem;">
-    <p>🚀 Powered by GPT-5-nano via Comet API | Built for Researchers & Academics</p>
+    <p>🚀 Powered by Advanced AI Technology | Built for Researchers & Academics</p>
     <p>© 2025 IntelliDoc Research Pro | Version 1.0.0</p>
 </div>
 """, unsafe_allow_html=True)
