@@ -1,0 +1,40 @@
+# Core dependencies
+streamlit
+openai
+python-dotenv
+
+# Document processing
+pypdf
+python-docx
+pillow
+pypandoc
+
+# Data processing and analysis
+pandas
+numpy
+scipy
+
+# Visualization
+plotly
+matplotlib
+seaborn
+wordcloud
+networkx
+
+# NLP and text processing
+nltk
+spacy
+textstat
+
+# Export functionality
+reportlab
+openpyxl
+python-pptx
+
+# API and networking
+requests
+aiohttp
+
+# Utilities
+validators
+python-dateutil
